@@ -1,4 +1,4 @@
-# TSS Test Case Reviewer
+# TDD Test Case Reviewer
 
 Structured Agent Skill for reviewing drafted software test cases and test suites before execution or automation.
 
