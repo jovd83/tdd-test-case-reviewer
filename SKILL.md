@@ -174,7 +174,15 @@ Need more negative tests.
 Add two ERR tests for REQ-07 using equivalence partitions for account status: one suspended account and one closed account. Assert the rejection message and unchanged account balance.
 ```
 
-## 9. Troubleshooting
+## 9. Gotchas
+1. **The Code-Mirroring Trap**: Do not use implementation code as the primary oracle. Reviewing tests against what the code *already does* instead of what the *requirement demands* leads to "green-but-wrong" tests that pass while the business logic is incorrect.
+2. **The "Happy Path" Bias**: Ensure the review doesn't stop at the Main Success Scenario (MSS). Explicitly check for Error (ERR) and Extension (EXT) paths, state transitions, and boundary conditions that are often overlooked in initial drafts.
+3. **Vague Expected Results**: Reject results like "Success," "OK," or "User is redirected." Demand observable, verifiable outcomes such as specific UI elements, API status codes, database record changes, or outgoing events.
+4. **Data Hardcoding**: Flag tests that rely on specific, ephemeral data IDs (e.g., `userId=123`) instead of describing the *type* or *state* of data required (e.g., "an active user with no pending orders").
+5. **Reviewing in a Vacuum**: If requirements are missing or ambiguous, do not guess the intended behavior. Explicitly state the limitation in the review and ask for the authoritative source before finalizing coverage scores.
+6. **Implicit Assumptions**: Watch for "invisible" preconditions. If a test requires a specific configuration or background state that isn't listed, it will be non-deterministic or fail in execution.
+
+## 10. Troubleshooting
 
 1. Error: `Requirements are missing or too vague.`
    Fix:
@@ -200,7 +208,7 @@ Add two ERR tests for REQ-07 using equivalence partitions for account status: on
    1. finish the review first
    2. rewrite or propose corrected cases only after naming the defects and rationale
 
-## 10. Final Check
+## 11. Final Check
 
 1. Confirm that every major claim is backed by an artifact.
 2. Confirm that missing coverage is tied to a named requirement, path, rule, or state.
