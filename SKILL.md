@@ -1,8 +1,16 @@
 ---
 name: tss-test-case-reviewer
 description: Use when the user wants to review, audit, critique, score, or mentor drafted software test cases, manual scenarios, UAT cases, or test suites for requirement traceability, coverage gaps, technical correctness, standards compliance, weak expected results, or TSS or TDD-style test design quality before execution, automation, or sign-off.
+metadata:
+  dispatcher-output-artifacts: review_findings, scored_review, mentoring_feedback
+  dispatcher-risk: low
+  dispatcher-writes-files: true
+  dispatcher-input-artifacts: test_cases, requirements, standards, review_scope
+  dispatcher-capabilities: test-case-review, test-case-scoring, test-design-mentoring
+  dispatcher-stack-tags: testing, review, test-design
+  dispatcher-accepted-intents: review_test_cases, score_test_cases, mentor_test_case_quality
+  dispatcher-category: testing
 ---
-
 # TSS Test Case Reviewer
 
 ## 1. Scope Selection
