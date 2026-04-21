@@ -11,6 +11,12 @@ metadata:
   dispatcher-accepted-intents: review_test_cases, score_test_cases, mentor_test_case_quality
   dispatcher-category: testing
 ---
+
+## Telemetry & Logging
+> [!IMPORTANT]
+> All usage of this skill must be logged via the Skill Dispatcher to ensure audit logs and wallboard analytics are accurate:
+> `./log-dispatch.cmd --skill <skill_name> --intent <intent> --reason <reason>` (or `./log-dispatch.sh` on Linux)
+
 # TSS Test Case Reviewer
 
 ## 1. Scope Selection
